@@ -1,0 +1,27 @@
+### 3-27
+
+```js
+var obj = {
+  outer: function() {
+    console.log(this);
+    var innerFunc = function() {
+      console.log(this);
+    };
+    innerFunc.call(this);
+  },
+};
+obj.outer();
+```
+
+```js
+var obj = {
+  outer: function() {
+    console.log(this);
+    var innerFunc = function() {
+      console.log(this);
+    }.bind(this);
+    innerFunc();
+  },
+};
+obj.outer();
+```
